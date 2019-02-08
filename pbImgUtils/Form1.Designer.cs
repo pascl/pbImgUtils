@@ -31,51 +31,51 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ofdImg = new System.Windows.Forms.OpenFileDialog();
             this.sfdImg = new System.Windows.Forms.SaveFileDialog();
-            this.btLoad = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
             this.cbFontUsed = new System.Windows.Forms.ComboBox();
             this.nudImageWidth = new System.Windows.Forms.NumericUpDown();
             this.nudImageHeight = new System.Windows.Forms.NumericUpDown();
             this.tbTextToAdd = new System.Windows.Forms.TextBox();
             this.nudFontSize = new System.Windows.Forms.NumericUpDown();
-            this.pbImgStart = new System.Windows.Forms.PictureBox();
-            this.pbImgResult = new System.Windows.Forms.PictureBox();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbOneFilePerLine = new System.Windows.Forms.CheckBox();
+            this.cbStrike = new System.Windows.Forms.CheckBox();
+            this.cbUnderline = new System.Windows.Forms.CheckBox();
+            this.cbItalic = new System.Windows.Forms.CheckBox();
+            this.cbBold = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cbYCenter = new System.Windows.Forms.CheckBox();
             this.cbXCenter = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbFontColor = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.nudXText = new System.Windows.Forms.NumericUpDown();
             this.nudYText = new System.Windows.Forms.NumericUpDown();
-            this.btPreview = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbFontColor = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbBold = new System.Windows.Forms.CheckBox();
-            this.cbItalic = new System.Windows.Forms.CheckBox();
-            this.cbUnderline = new System.Windows.Forms.CheckBox();
-            this.cbStrike = new System.Windows.Forms.CheckBox();
-            this.cbOneFilePerLine = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btLoad = new System.Windows.Forms.Button();
+            this.pbImgStart = new System.Windows.Forms.PictureBox();
+            this.btPreview = new System.Windows.Forms.Button();
+            this.btSave = new System.Windows.Forms.Button();
+            this.pbImgResult = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFontSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImgStart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImgResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudXText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYText)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImgStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImgResult)).BeginInit();
             this.SuspendLayout();
             // 
             // ofdImg
@@ -96,27 +96,6 @@
             this.sfdImg.ShowHelp = true;
             this.sfdImg.Title = "Save file";
             // 
-            // btLoad
-            // 
-            this.btLoad.Location = new System.Drawing.Point(177, 19);
-            this.btLoad.Name = "btLoad";
-            this.btLoad.Size = new System.Drawing.Size(100, 23);
-            this.btLoad.TabIndex = 0;
-            this.btLoad.Text = "Load";
-            this.btLoad.UseVisualStyleBackColor = true;
-            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
-            // 
-            // btSave
-            // 
-            this.btSave.Enabled = false;
-            this.btSave.Location = new System.Drawing.Point(5, 488);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(100, 23);
-            this.btSave.TabIndex = 1;
-            this.btSave.Text = "Save";
-            this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
             // cbFontUsed
             // 
             this.cbFontUsed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -130,7 +109,7 @@
             // 
             this.nudImageWidth.Location = new System.Drawing.Point(99, 19);
             this.nudImageWidth.Maximum = new decimal(new int[] {
-            1000,
+            1920,
             0,
             0,
             0});
@@ -152,7 +131,7 @@
             // 
             this.nudImageHeight.Location = new System.Drawing.Point(216, 19);
             this.nudImageHeight.Maximum = new decimal(new int[] {
-            1000,
+            1920,
             0,
             0,
             0});
@@ -196,29 +175,6 @@
             0,
             0});
             // 
-            // pbImgStart
-            // 
-            this.pbImgStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImgStart.Location = new System.Drawing.Point(10, 19);
-            this.pbImgStart.Name = "pbImgStart";
-            this.pbImgStart.Size = new System.Drawing.Size(150, 150);
-            this.pbImgStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImgStart.TabIndex = 7;
-            this.pbImgStart.TabStop = false;
-            this.pbImgStart.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbImgStart_DragDrop);
-            this.pbImgStart.DragEnter += new System.Windows.Forms.DragEventHandler(this.pbImgStart_DragEnter);
-            // 
-            // pbImgResult
-            // 
-            this.pbImgResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImgResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbImgResult.Location = new System.Drawing.Point(0, 0);
-            this.pbImgResult.Name = "pbImgResult";
-            this.pbImgResult.Size = new System.Drawing.Size(423, 523);
-            this.pbImgResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImgResult.TabIndex = 8;
-            this.pbImgResult.TabStop = false;
-            // 
             // splitContainerMain
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -240,157 +196,6 @@
             this.splitContainerMain.Size = new System.Drawing.Size(727, 523);
             this.splitContainerMain.SplitterDistance = 300;
             this.splitContainerMain.TabIndex = 9;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btLoad);
-            this.groupBox1.Controls.Add(this.pbImgStart);
-            this.groupBox1.Location = new System.Drawing.Point(5, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(292, 179);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Load picture";
-            // 
-            // cbYCenter
-            // 
-            this.cbYCenter.AutoSize = true;
-            this.cbYCenter.Location = new System.Drawing.Point(124, 134);
-            this.cbYCenter.Name = "cbYCenter";
-            this.cbYCenter.Size = new System.Drawing.Size(68, 17);
-            this.cbYCenter.TabIndex = 20;
-            this.cbYCenter.Text = "centered";
-            this.cbYCenter.UseVisualStyleBackColor = true;
-            // 
-            // cbXCenter
-            // 
-            this.cbXCenter.AutoSize = true;
-            this.cbXCenter.Location = new System.Drawing.Point(124, 106);
-            this.cbXCenter.Name = "cbXCenter";
-            this.cbXCenter.Size = new System.Drawing.Size(68, 17);
-            this.cbXCenter.TabIndex = 19;
-            this.cbXCenter.Text = "centered";
-            this.cbXCenter.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Y position:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 107);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "X position:";
-            // 
-            // nudXText
-            // 
-            this.nudXText.Location = new System.Drawing.Point(216, 105);
-            this.nudXText.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudXText.Name = "nudXText";
-            this.nudXText.Size = new System.Drawing.Size(61, 20);
-            this.nudXText.TabIndex = 15;
-            // 
-            // nudYText
-            // 
-            this.nudYText.Location = new System.Drawing.Point(216, 133);
-            this.nudYText.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudYText.Name = "nudYText";
-            this.nudYText.Size = new System.Drawing.Size(61, 20);
-            this.nudYText.TabIndex = 16;
-            // 
-            // btPreview
-            // 
-            this.btPreview.Enabled = false;
-            this.btPreview.Location = new System.Drawing.Point(197, 488);
-            this.btPreview.Name = "btPreview";
-            this.btPreview.Size = new System.Drawing.Size(100, 23);
-            this.btPreview.TabIndex = 14;
-            this.btPreview.Text = "Preview";
-            this.btPreview.UseVisualStyleBackColor = true;
-            this.btPreview.Click += new System.EventHandler(this.btPreview_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 61);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Font color:";
-            // 
-            // cbFontColor
-            // 
-            this.cbFontColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFontColor.FormattingEnabled = true;
-            this.cbFontColor.Location = new System.Drawing.Point(156, 58);
-            this.cbFontColor.Name = "cbFontColor";
-            this.cbFontColor.Size = new System.Drawing.Size(121, 21);
-            this.cbFontColor.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Font size:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Font family:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Size:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.nudImageHeight);
-            this.groupBox2.Controls.Add(this.nudImageWidth);
-            this.groupBox2.Location = new System.Drawing.Point(5, 188);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(292, 49);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Picture Result";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(180, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "x";
             // 
             // groupBox3
             // 
@@ -419,35 +224,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add Text";
             // 
-            // cbBold
+            // cbOneFilePerLine
             // 
-            this.cbBold.AutoSize = true;
-            this.cbBold.Location = new System.Drawing.Point(127, 85);
-            this.cbBold.Name = "cbBold";
-            this.cbBold.Size = new System.Drawing.Size(33, 17);
-            this.cbBold.TabIndex = 21;
-            this.cbBold.Text = "B";
-            this.cbBold.UseVisualStyleBackColor = true;
-            // 
-            // cbItalic
-            // 
-            this.cbItalic.AutoSize = true;
-            this.cbItalic.Location = new System.Drawing.Point(169, 85);
-            this.cbItalic.Name = "cbItalic";
-            this.cbItalic.Size = new System.Drawing.Size(29, 17);
-            this.cbItalic.TabIndex = 22;
-            this.cbItalic.Text = "I";
-            this.cbItalic.UseVisualStyleBackColor = true;
-            // 
-            // cbUnderline
-            // 
-            this.cbUnderline.AutoSize = true;
-            this.cbUnderline.Location = new System.Drawing.Point(204, 85);
-            this.cbUnderline.Name = "cbUnderline";
-            this.cbUnderline.Size = new System.Drawing.Size(34, 17);
-            this.cbUnderline.TabIndex = 23;
-            this.cbUnderline.Text = "U";
-            this.cbUnderline.UseVisualStyleBackColor = true;
+            this.cbOneFilePerLine.AutoSize = true;
+            this.cbOneFilePerLine.Location = new System.Drawing.Point(207, 216);
+            this.cbOneFilePerLine.Name = "cbOneFilePerLine";
+            this.cbOneFilePerLine.Size = new System.Drawing.Size(85, 17);
+            this.cbOneFilePerLine.TabIndex = 25;
+            this.cbOneFilePerLine.Text = "1 file per line";
+            this.cbOneFilePerLine.UseVisualStyleBackColor = true;
             // 
             // cbStrike
             // 
@@ -459,15 +244,239 @@
             this.cbStrike.Text = "S";
             this.cbStrike.UseVisualStyleBackColor = true;
             // 
-            // cbOneFilePerLine
+            // cbUnderline
             // 
-            this.cbOneFilePerLine.AutoSize = true;
-            this.cbOneFilePerLine.Location = new System.Drawing.Point(207, 216);
-            this.cbOneFilePerLine.Name = "cbOneFilePerLine";
-            this.cbOneFilePerLine.Size = new System.Drawing.Size(85, 17);
-            this.cbOneFilePerLine.TabIndex = 25;
-            this.cbOneFilePerLine.Text = "1 file per line";
-            this.cbOneFilePerLine.UseVisualStyleBackColor = true;
+            this.cbUnderline.AutoSize = true;
+            this.cbUnderline.Location = new System.Drawing.Point(204, 85);
+            this.cbUnderline.Name = "cbUnderline";
+            this.cbUnderline.Size = new System.Drawing.Size(34, 17);
+            this.cbUnderline.TabIndex = 23;
+            this.cbUnderline.Text = "U";
+            this.cbUnderline.UseVisualStyleBackColor = true;
+            // 
+            // cbItalic
+            // 
+            this.cbItalic.AutoSize = true;
+            this.cbItalic.Location = new System.Drawing.Point(169, 85);
+            this.cbItalic.Name = "cbItalic";
+            this.cbItalic.Size = new System.Drawing.Size(29, 17);
+            this.cbItalic.TabIndex = 22;
+            this.cbItalic.Text = "I";
+            this.cbItalic.UseVisualStyleBackColor = true;
+            // 
+            // cbBold
+            // 
+            this.cbBold.AutoSize = true;
+            this.cbBold.Location = new System.Drawing.Point(127, 85);
+            this.cbBold.Name = "cbBold";
+            this.cbBold.Size = new System.Drawing.Size(33, 17);
+            this.cbBold.TabIndex = 21;
+            this.cbBold.Text = "B";
+            this.cbBold.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Font family:";
+            // 
+            // cbYCenter
+            // 
+            this.cbYCenter.AutoSize = true;
+            this.cbYCenter.Location = new System.Drawing.Point(124, 134);
+            this.cbYCenter.Name = "cbYCenter";
+            this.cbYCenter.Size = new System.Drawing.Size(68, 17);
+            this.cbYCenter.TabIndex = 20;
+            this.cbYCenter.Text = "centered";
+            this.cbYCenter.UseVisualStyleBackColor = true;
+            // 
+            // cbXCenter
+            // 
+            this.cbXCenter.AutoSize = true;
+            this.cbXCenter.Location = new System.Drawing.Point(124, 106);
+            this.cbXCenter.Name = "cbXCenter";
+            this.cbXCenter.Size = new System.Drawing.Size(68, 17);
+            this.cbXCenter.TabIndex = 19;
+            this.cbXCenter.Text = "centered";
+            this.cbXCenter.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Font size:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Y position:";
+            // 
+            // cbFontColor
+            // 
+            this.cbFontColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFontColor.FormattingEnabled = true;
+            this.cbFontColor.Location = new System.Drawing.Point(156, 58);
+            this.cbFontColor.Name = "cbFontColor";
+            this.cbFontColor.Size = new System.Drawing.Size(121, 21);
+            this.cbFontColor.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 107);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "X position:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Font color:";
+            // 
+            // nudXText
+            // 
+            this.nudXText.Location = new System.Drawing.Point(216, 105);
+            this.nudXText.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.nudXText.Name = "nudXText";
+            this.nudXText.Size = new System.Drawing.Size(61, 20);
+            this.nudXText.TabIndex = 15;
+            // 
+            // nudYText
+            // 
+            this.nudYText.Location = new System.Drawing.Point(216, 133);
+            this.nudYText.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.nudYText.Name = "nudYText";
+            this.nudYText.Size = new System.Drawing.Size(61, 20);
+            this.nudYText.TabIndex = 16;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.nudImageHeight);
+            this.groupBox2.Controls.Add(this.nudImageWidth);
+            this.groupBox2.Location = new System.Drawing.Point(5, 188);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(292, 49);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Picture Result";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(180, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "x";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Size:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btLoad);
+            this.groupBox1.Controls.Add(this.pbImgStart);
+            this.groupBox1.Location = new System.Drawing.Point(5, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(292, 179);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Load picture";
+            // 
+            // btLoad
+            // 
+            this.btLoad.Image = global::pbImgUtils.Properties.Resources.folder_yellow_open;
+            this.btLoad.Location = new System.Drawing.Point(177, 19);
+            this.btLoad.Name = "btLoad";
+            this.btLoad.Size = new System.Drawing.Size(100, 23);
+            this.btLoad.TabIndex = 0;
+            this.btLoad.Text = "Load";
+            this.btLoad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btLoad.UseVisualStyleBackColor = true;
+            this.btLoad.Click += new System.EventHandler(this.btLoad_Click);
+            // 
+            // pbImgStart
+            // 
+            this.pbImgStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImgStart.Location = new System.Drawing.Point(10, 19);
+            this.pbImgStart.Name = "pbImgStart";
+            this.pbImgStart.Size = new System.Drawing.Size(150, 150);
+            this.pbImgStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImgStart.TabIndex = 7;
+            this.pbImgStart.TabStop = false;
+            this.pbImgStart.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbImgStart_DragDrop);
+            this.pbImgStart.DragEnter += new System.Windows.Forms.DragEventHandler(this.pbImgStart_DragEnter);
+            // 
+            // btPreview
+            // 
+            this.btPreview.Enabled = false;
+            this.btPreview.Image = global::pbImgUtils.Properties.Resources.view_preview;
+            this.btPreview.Location = new System.Drawing.Point(197, 488);
+            this.btPreview.Name = "btPreview";
+            this.btPreview.Size = new System.Drawing.Size(100, 23);
+            this.btPreview.TabIndex = 14;
+            this.btPreview.Text = "Preview";
+            this.btPreview.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btPreview.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btPreview.UseVisualStyleBackColor = true;
+            this.btPreview.Click += new System.EventHandler(this.btPreview_Click);
+            // 
+            // btSave
+            // 
+            this.btSave.Enabled = false;
+            this.btSave.Image = global::pbImgUtils.Properties.Resources.document_save_5;
+            this.btSave.Location = new System.Drawing.Point(5, 488);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(100, 23);
+            this.btSave.TabIndex = 1;
+            this.btSave.Text = "Save";
+            this.btSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // pbImgResult
+            // 
+            this.pbImgResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImgResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImgResult.Location = new System.Drawing.Point(0, 0);
+            this.pbImgResult.Name = "pbImgResult";
+            this.pbImgResult.Size = new System.Drawing.Size(423, 523);
+            this.pbImgResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImgResult.TabIndex = 8;
+            this.pbImgResult.TabStop = false;
             // 
             // Form1
             // 
@@ -484,19 +493,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudImageWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFontSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImgStart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImgResult)).EndInit();
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudXText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYText)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImgStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImgResult)).EndInit();
             this.ResumeLayout(false);
 
         }
