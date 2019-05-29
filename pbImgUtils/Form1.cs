@@ -160,11 +160,19 @@ namespace pbImgUtils
             Brushes.YellowGreen
             };
 
+        int orig_width;
+        int orig_height;
+        float orig_ratio;
+
         public Form1()
         {
             InitializeComponent();
 
             this.Text = "pbImgUtils v" + Assembly.GetExecutingAssembly().GetName().Version;
+
+            orig_width = 0;
+            orig_height = 0;
+            orig_ratio = 0;
 
             pbImgStart.AllowDrop = true;
 
@@ -382,6 +390,7 @@ namespace pbImgUtils
             cbYCenter.Checked = Properties.Settings.Default.bYcentered;
 
             cbOneFilePerLine.Checked = Properties.Settings.Default.bOneFilePerLine;
+            cbKeepOriginalRatio.Checked = Properties.Settings.Default.bKeepAspectRatio;
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -429,6 +438,7 @@ namespace pbImgUtils
             String sTextAll = tbTextToAdd.Text;
             String[] sText = sTextAll.Split('\n');
             Brush brush = knownBrushes[cbFontColor.SelectedIndex];
+            bool bKeepRatio = cbKeepOriginalRatio.Checked;
             
             int lenResult = 1;
             if (cbOneFilePerLine.Checked)
@@ -444,8 +454,36 @@ namespace pbImgUtils
 
             for (index = 0; index < lenResult; index++)
             {
-                Bitmap bm = new Bitmap(ClPbHelper.ResizeImage(pbImgStart.Image, width, height));
-                Graphics gp = Graphics.FromImage(bm);
+                Bitmap bm;
+                Graphics gp;
+                if ((bKeepRatio) && (orig_ratio != 0) && (height != 0) && (orig_ratio != (width / height)))
+                {
+                    float current_ratio = (float)(width) / (float)(height);
+                    int width1 = (int)(height * orig_ratio);
+                    int height1 = (int)(width / orig_ratio);
+                    bm = new Bitmap(width, height);
+                    gp = Graphics.FromImage(bm);
+                    gp.Clear(Color.Transparent);
+                    Bitmap bm1;
+                    int x = 0;
+                    int y = 0;
+                    if (width1 < width)
+                    {
+                        bm1 = new Bitmap(ClPbHelper.ResizeImage(pbImgStart.Image, width1, height));
+                        x = ((width - width1) / 2);
+                    }
+                    else
+                    {
+                        bm1 = new Bitmap(ClPbHelper.ResizeImage(pbImgStart.Image, width, height1));
+                        y = ((height - height1) / 2);
+                    }
+                    gp.DrawImage(bm1, x, y);
+                }
+                else
+                {
+                    bm = new Bitmap(ClPbHelper.ResizeImage(pbImgStart.Image, width, height));
+                    gp = Graphics.FromImage(bm);
+                }
 
                 gp.SmoothingMode = SmoothingMode.AntiAlias;
                 gp.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -496,6 +534,16 @@ namespace pbImgUtils
                     {
                         using (Bitmap bmPicture = new Bitmap(sFileList[0]))
                         {
+                            orig_width = bmPicture.Width;
+                            orig_height = bmPicture.Height;
+                            if (orig_height != 0)
+                            {
+                                orig_ratio = (float)(orig_width) / (float)(orig_height);
+                            }
+                            else
+                            {
+                                orig_ratio = 0;
+                            }
                             pbImgStart.Image = (Image)(new Bitmap(bmPicture));
                             btSave.Enabled = true;
                             btPreview.Enabled = true;
@@ -532,6 +580,16 @@ namespace pbImgUtils
                 {
                     using (Bitmap bmPicture = new Bitmap(sFileName))
                     {
+                        orig_width = bmPicture.Width;
+                        orig_height = bmPicture.Height;
+                        if (orig_height != 0)
+                        {
+                            orig_ratio = (float)(orig_width) / (float)(orig_height);
+                        }
+                        else
+                        {
+                            orig_ratio = 0;
+                        }
                         pbImgStart.Image = (Image)(new Bitmap(bmPicture));
                         btSave.Enabled = true;
                         btPreview.Enabled = true;
@@ -560,6 +618,7 @@ namespace pbImgUtils
             Properties.Settings.Default.bXcentered = cbXCenter.Checked;
             Properties.Settings.Default.bYcentered = cbYCenter.Checked;
             Properties.Settings.Default.bOneFilePerLine = cbOneFilePerLine.Checked;
+            Properties.Settings.Default.bKeepAspectRatio = cbKeepOriginalRatio.Checked;
             Properties.Settings.Default.Save();
         }
 

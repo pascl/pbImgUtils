@@ -62,6 +62,7 @@
             this.btPreview = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.pbImgResult = new System.Windows.Forms.PictureBox();
+            this.cbKeepOriginalRatio = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFontSize)).BeginInit();
@@ -193,7 +194,7 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.pbImgResult);
-            this.splitContainerMain.Size = new System.Drawing.Size(727, 523);
+            this.splitContainerMain.Size = new System.Drawing.Size(724, 541);
             this.splitContainerMain.SplitterDistance = 300;
             this.splitContainerMain.TabIndex = 9;
             // 
@@ -217,7 +218,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.nudXText);
             this.groupBox3.Controls.Add(this.nudYText);
-            this.groupBox3.Location = new System.Drawing.Point(5, 243);
+            this.groupBox3.Location = new System.Drawing.Point(5, 270);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(292, 239);
             this.groupBox3.TabIndex = 23;
@@ -374,13 +375,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbKeepOriginalRatio);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.nudImageHeight);
             this.groupBox2.Controls.Add(this.nudImageWidth);
             this.groupBox2.Location = new System.Drawing.Point(5, 188);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(292, 49);
+            this.groupBox2.Size = new System.Drawing.Size(292, 76);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Picture Result";
@@ -443,7 +445,7 @@
             // 
             this.btPreview.Enabled = false;
             this.btPreview.Image = global::pbImgUtils.Properties.Resources.view_preview;
-            this.btPreview.Location = new System.Drawing.Point(197, 488);
+            this.btPreview.Location = new System.Drawing.Point(197, 515);
             this.btPreview.Name = "btPreview";
             this.btPreview.Size = new System.Drawing.Size(100, 23);
             this.btPreview.TabIndex = 14;
@@ -457,7 +459,7 @@
             // 
             this.btSave.Enabled = false;
             this.btSave.Image = global::pbImgUtils.Properties.Resources.document_save_5;
-            this.btSave.Location = new System.Drawing.Point(5, 488);
+            this.btSave.Location = new System.Drawing.Point(5, 515);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(100, 23);
             this.btSave.TabIndex = 1;
@@ -473,20 +475,30 @@
             this.pbImgResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbImgResult.Location = new System.Drawing.Point(0, 0);
             this.pbImgResult.Name = "pbImgResult";
-            this.pbImgResult.Size = new System.Drawing.Size(423, 523);
+            this.pbImgResult.Size = new System.Drawing.Size(420, 541);
             this.pbImgResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImgResult.TabIndex = 8;
             this.pbImgResult.TabStop = false;
+            // 
+            // cbKeepOriginalRatio
+            // 
+            this.cbKeepOriginalRatio.AutoSize = true;
+            this.cbKeepOriginalRatio.Location = new System.Drawing.Point(10, 53);
+            this.cbKeepOriginalRatio.Name = "cbKeepOriginalRatio";
+            this.cbKeepOriginalRatio.Size = new System.Drawing.Size(145, 17);
+            this.cbKeepOriginalRatio.TabIndex = 10;
+            this.cbKeepOriginalRatio.Text = "Keep original aspect ratio";
+            this.cbKeepOriginalRatio.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 523);
+            this.ClientSize = new System.Drawing.Size(724, 541);
             this.Controls.Add(this.splitContainerMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1920, 562);
-            this.MinimumSize = new System.Drawing.Size(562, 562);
+            this.MaximumSize = new System.Drawing.Size(1920, 580);
+            this.MinimumSize = new System.Drawing.Size(580, 580);
             this.Name = "Form1";
             this.Text = "pbImgUtils";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -545,6 +557,7 @@
         private System.Windows.Forms.CheckBox cbBold;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cbKeepOriginalRatio;
     }
 }
 

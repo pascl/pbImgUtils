@@ -190,5 +190,17 @@ namespace pbImgUtils.Properties {
                 this["bOneFilePerLine"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool bKeepAspectRatio {
+            get {
+                return ((bool)(this["bKeepAspectRatio"]));
+            }
+            set {
+                this["bKeepAspectRatio"] = value;
+            }
+        }
     }
 }
