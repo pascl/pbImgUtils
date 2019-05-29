@@ -2,7 +2,7 @@
 
 A little software to resize a picture and add a text on it.
 
-Last version: 1.0
+Last version: 1.1
 
 ![Preview](https://i.imgur.com/9mC9JjA.png)
 
