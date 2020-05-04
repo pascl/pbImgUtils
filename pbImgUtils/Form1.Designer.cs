@@ -54,6 +54,7 @@
             this.nudXText = new System.Windows.Forms.NumericUpDown();
             this.nudYText = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbKeepOriginalRatio = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -62,7 +63,21 @@
             this.btPreview = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.pbImgResult = new System.Windows.Forms.PictureBox();
-            this.cbKeepOriginalRatio = new System.Windows.Forms.CheckBox();
+            this.tcMain = new System.Windows.Forms.TabControl();
+            this.tabPageAddText = new System.Windows.Forms.TabPage();
+            this.tabPageSplit = new System.Windows.Forms.TabPage();
+            this.btSplitSave = new System.Windows.Forms.Button();
+            this.btSplitPreview = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nudColumns = new System.Windows.Forms.NumericUpDown();
+            this.nudLines = new System.Windows.Forms.NumericUpDown();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.nudBorderWest = new System.Windows.Forms.NumericUpDown();
+            this.nudBorderNorth = new System.Windows.Forms.NumericUpDown();
+            this.nudBorderSouth = new System.Windows.Forms.NumericUpDown();
+            this.nudBorderEast = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImageHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFontSize)).BeginInit();
@@ -77,6 +92,17 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgResult)).BeginInit();
+            this.tcMain.SuspendLayout();
+            this.tabPageAddText.SuspendLayout();
+            this.tabPageSplit.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColumns)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLines)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderWest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderNorth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderSouth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderEast)).BeginInit();
             this.SuspendLayout();
             // 
             // ofdImg
@@ -185,17 +211,14 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.groupBox3);
-            this.splitContainerMain.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainerMain.Panel1.Controls.Add(this.tcMain);
             this.splitContainerMain.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainerMain.Panel1.Controls.Add(this.btPreview);
-            this.splitContainerMain.Panel1.Controls.Add(this.btSave);
             // 
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.pbImgResult);
-            this.splitContainerMain.Size = new System.Drawing.Size(724, 541);
-            this.splitContainerMain.SplitterDistance = 300;
+            this.splitContainerMain.Size = new System.Drawing.Size(731, 581);
+            this.splitContainerMain.SplitterDistance = 310;
             this.splitContainerMain.TabIndex = 9;
             // 
             // groupBox3
@@ -218,7 +241,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.nudXText);
             this.groupBox3.Controls.Add(this.nudYText);
-            this.groupBox3.Location = new System.Drawing.Point(5, 270);
+            this.groupBox3.Location = new System.Drawing.Point(6, 88);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(292, 239);
             this.groupBox3.TabIndex = 23;
@@ -380,12 +403,22 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.nudImageHeight);
             this.groupBox2.Controls.Add(this.nudImageWidth);
-            this.groupBox2.Location = new System.Drawing.Point(5, 188);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(292, 76);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Picture Result";
+            // 
+            // cbKeepOriginalRatio
+            // 
+            this.cbKeepOriginalRatio.AutoSize = true;
+            this.cbKeepOriginalRatio.Location = new System.Drawing.Point(10, 53);
+            this.cbKeepOriginalRatio.Name = "cbKeepOriginalRatio";
+            this.cbKeepOriginalRatio.Size = new System.Drawing.Size(145, 17);
+            this.cbKeepOriginalRatio.TabIndex = 10;
+            this.cbKeepOriginalRatio.Text = "Keep original aspect ratio";
+            this.cbKeepOriginalRatio.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -411,7 +444,7 @@
             this.groupBox1.Controls.Add(this.pbImgStart);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(292, 179);
+            this.groupBox1.Size = new System.Drawing.Size(302, 179);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Load picture";
@@ -445,7 +478,7 @@
             // 
             this.btPreview.Enabled = false;
             this.btPreview.Image = global::pbImgUtils.Properties.Resources.view_preview;
-            this.btPreview.Location = new System.Drawing.Point(197, 515);
+            this.btPreview.Location = new System.Drawing.Point(198, 333);
             this.btPreview.Name = "btPreview";
             this.btPreview.Size = new System.Drawing.Size(100, 23);
             this.btPreview.TabIndex = 14;
@@ -459,7 +492,7 @@
             // 
             this.btSave.Enabled = false;
             this.btSave.Image = global::pbImgUtils.Properties.Resources.document_save_5;
-            this.btSave.Location = new System.Drawing.Point(5, 515);
+            this.btSave.Location = new System.Drawing.Point(6, 333);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(100, 23);
             this.btSave.TabIndex = 1;
@@ -475,30 +508,192 @@
             this.pbImgResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbImgResult.Location = new System.Drawing.Point(0, 0);
             this.pbImgResult.Name = "pbImgResult";
-            this.pbImgResult.Size = new System.Drawing.Size(420, 541);
+            this.pbImgResult.Size = new System.Drawing.Size(417, 581);
             this.pbImgResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImgResult.TabIndex = 8;
             this.pbImgResult.TabStop = false;
             // 
-            // cbKeepOriginalRatio
+            // tcMain
             // 
-            this.cbKeepOriginalRatio.AutoSize = true;
-            this.cbKeepOriginalRatio.Location = new System.Drawing.Point(10, 53);
-            this.cbKeepOriginalRatio.Name = "cbKeepOriginalRatio";
-            this.cbKeepOriginalRatio.Size = new System.Drawing.Size(145, 17);
-            this.cbKeepOriginalRatio.TabIndex = 10;
-            this.cbKeepOriginalRatio.Text = "Keep original aspect ratio";
-            this.cbKeepOriginalRatio.UseVisualStyleBackColor = true;
+            this.tcMain.Controls.Add(this.tabPageAddText);
+            this.tcMain.Controls.Add(this.tabPageSplit);
+            this.tcMain.Location = new System.Drawing.Point(5, 188);
+            this.tcMain.Name = "tcMain";
+            this.tcMain.SelectedIndex = 0;
+            this.tcMain.Size = new System.Drawing.Size(317, 389);
+            this.tcMain.TabIndex = 10;
+            // 
+            // tabPageAddText
+            // 
+            this.tabPageAddText.Controls.Add(this.groupBox3);
+            this.tabPageAddText.Controls.Add(this.groupBox2);
+            this.tabPageAddText.Controls.Add(this.btSave);
+            this.tabPageAddText.Controls.Add(this.btPreview);
+            this.tabPageAddText.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddText.Name = "tabPageAddText";
+            this.tabPageAddText.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddText.Size = new System.Drawing.Size(309, 363);
+            this.tabPageAddText.TabIndex = 0;
+            this.tabPageAddText.Text = "Add Text";
+            this.tabPageAddText.UseVisualStyleBackColor = true;
+            // 
+            // tabPageSplit
+            // 
+            this.tabPageSplit.Controls.Add(this.groupBox5);
+            this.tabPageSplit.Controls.Add(this.groupBox4);
+            this.tabPageSplit.Controls.Add(this.btSplitSave);
+            this.tabPageSplit.Controls.Add(this.btSplitPreview);
+            this.tabPageSplit.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSplit.Name = "tabPageSplit";
+            this.tabPageSplit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSplit.Size = new System.Drawing.Size(309, 363);
+            this.tabPageSplit.TabIndex = 1;
+            this.tabPageSplit.Text = "Split";
+            this.tabPageSplit.UseVisualStyleBackColor = true;
+            // 
+            // btSplitSave
+            // 
+            this.btSplitSave.Enabled = false;
+            this.btSplitSave.Image = global::pbImgUtils.Properties.Resources.document_save_5;
+            this.btSplitSave.Location = new System.Drawing.Point(6, 334);
+            this.btSplitSave.Name = "btSplitSave";
+            this.btSplitSave.Size = new System.Drawing.Size(100, 23);
+            this.btSplitSave.TabIndex = 15;
+            this.btSplitSave.Text = "Save";
+            this.btSplitSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btSplitSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btSplitSave.UseVisualStyleBackColor = true;
+            this.btSplitSave.Click += new System.EventHandler(this.btSplitSave_Click);
+            // 
+            // btSplitPreview
+            // 
+            this.btSplitPreview.Enabled = false;
+            this.btSplitPreview.Image = global::pbImgUtils.Properties.Resources.view_preview;
+            this.btSplitPreview.Location = new System.Drawing.Point(198, 334);
+            this.btSplitPreview.Name = "btSplitPreview";
+            this.btSplitPreview.Size = new System.Drawing.Size(100, 23);
+            this.btSplitPreview.TabIndex = 16;
+            this.btSplitPreview.Text = "Preview";
+            this.btSplitPreview.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btSplitPreview.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btSplitPreview.UseVisualStyleBackColor = true;
+            this.btSplitPreview.Click += new System.EventHandler(this.btSplitPreview_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.nudColumns);
+            this.groupBox4.Controls.Add(this.nudLines);
+            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(292, 51);
+            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Picture Split";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(180, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(12, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "x";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 21);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Lines x Columns:";
+            // 
+            // nudColumns
+            // 
+            this.nudColumns.Location = new System.Drawing.Point(216, 19);
+            this.nudColumns.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudColumns.Name = "nudColumns";
+            this.nudColumns.Size = new System.Drawing.Size(61, 20);
+            this.nudColumns.TabIndex = 4;
+            this.nudColumns.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // nudLines
+            // 
+            this.nudLines.Location = new System.Drawing.Point(99, 19);
+            this.nudLines.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudLines.Name = "nudLines";
+            this.nudLines.Size = new System.Drawing.Size(61, 20);
+            this.nudLines.TabIndex = 3;
+            this.nudLines.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.nudBorderSouth);
+            this.groupBox5.Controls.Add(this.nudBorderEast);
+            this.groupBox5.Controls.Add(this.nudBorderWest);
+            this.groupBox5.Controls.Add(this.nudBorderNorth);
+            this.groupBox5.Location = new System.Drawing.Point(6, 63);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(292, 109);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Picture Original Borders";
+            // 
+            // nudBorderWest
+            // 
+            this.nudBorderWest.Location = new System.Drawing.Point(31, 46);
+            this.nudBorderWest.Name = "nudBorderWest";
+            this.nudBorderWest.Size = new System.Drawing.Size(61, 20);
+            this.nudBorderWest.TabIndex = 4;
+            // 
+            // nudBorderNorth
+            // 
+            this.nudBorderNorth.Location = new System.Drawing.Point(126, 19);
+            this.nudBorderNorth.Name = "nudBorderNorth";
+            this.nudBorderNorth.Size = new System.Drawing.Size(61, 20);
+            this.nudBorderNorth.TabIndex = 3;
+            // 
+            // nudBorderSouth
+            // 
+            this.nudBorderSouth.Location = new System.Drawing.Point(126, 73);
+            this.nudBorderSouth.Name = "nudBorderSouth";
+            this.nudBorderSouth.Size = new System.Drawing.Size(61, 20);
+            this.nudBorderSouth.TabIndex = 6;
+            // 
+            // nudBorderEast
+            // 
+            this.nudBorderEast.Location = new System.Drawing.Point(216, 46);
+            this.nudBorderEast.Name = "nudBorderEast";
+            this.nudBorderEast.Size = new System.Drawing.Size(61, 20);
+            this.nudBorderEast.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 541);
+            this.ClientSize = new System.Drawing.Size(731, 581);
             this.Controls.Add(this.splitContainerMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1920, 580);
-            this.MinimumSize = new System.Drawing.Size(580, 580);
+            this.MaximumSize = new System.Drawing.Size(1920, 620);
+            this.MinimumSize = new System.Drawing.Size(620, 620);
             this.Name = "Form1";
             this.Text = "pbImgUtils";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -518,6 +713,18 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImgStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgResult)).EndInit();
+            this.tcMain.ResumeLayout(false);
+            this.tabPageAddText.ResumeLayout(false);
+            this.tabPageSplit.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColumns)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLines)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderWest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderNorth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderSouth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBorderEast)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -558,6 +765,21 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbKeepOriginalRatio;
+        private System.Windows.Forms.TabControl tcMain;
+        private System.Windows.Forms.TabPage tabPageAddText;
+        private System.Windows.Forms.TabPage tabPageSplit;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown nudColumns;
+        private System.Windows.Forms.NumericUpDown nudLines;
+        private System.Windows.Forms.Button btSplitSave;
+        private System.Windows.Forms.Button btSplitPreview;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.NumericUpDown nudBorderSouth;
+        private System.Windows.Forms.NumericUpDown nudBorderEast;
+        private System.Windows.Forms.NumericUpDown nudBorderWest;
+        private System.Windows.Forms.NumericUpDown nudBorderNorth;
     }
 }
 

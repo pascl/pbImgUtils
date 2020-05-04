@@ -202,5 +202,77 @@ namespace pbImgUtils.Properties {
                 this["bKeepAspectRatio"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int iSplitLines {
+            get {
+                return ((int)(this["iSplitLines"]));
+            }
+            set {
+                this["iSplitLines"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int iSplitColumns {
+            get {
+                return ((int)(this["iSplitColumns"]));
+            }
+            set {
+                this["iSplitColumns"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int iBorderNorth {
+            get {
+                return ((int)(this["iBorderNorth"]));
+            }
+            set {
+                this["iBorderNorth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int iBorderSouth {
+            get {
+                return ((int)(this["iBorderSouth"]));
+            }
+            set {
+                this["iBorderSouth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int iBorderEast {
+            get {
+                return ((int)(this["iBorderEast"]));
+            }
+            set {
+                this["iBorderEast"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int iBorderWest {
+            get {
+                return ((int)(this["iBorderWest"]));
+            }
+            set {
+                this["iBorderWest"] = value;
+            }
+        }
     }
 }

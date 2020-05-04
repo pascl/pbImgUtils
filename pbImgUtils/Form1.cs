@@ -391,6 +391,55 @@ namespace pbImgUtils
 
             cbOneFilePerLine.Checked = Properties.Settings.Default.bOneFilePerLine;
             cbKeepOriginalRatio.Checked = Properties.Settings.Default.bKeepAspectRatio;
+
+            try
+            {
+                nudLines.Value = Properties.Settings.Default.iSplitLines;
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+            try
+            {
+                nudColumns.Value = Properties.Settings.Default.iSplitColumns;
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+            try
+            {
+                nudBorderEast.Value = Properties.Settings.Default.iBorderEast;
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+            try
+            {
+                nudBorderWest.Value = Properties.Settings.Default.iBorderWest;
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+            try
+            {
+                nudBorderNorth.Value = Properties.Settings.Default.iBorderNorth;
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+            try
+            {
+                nudBorderSouth.Value = Properties.Settings.Default.iBorderSouth;
+            }
+            catch (Exception ex)
+            {
+                //
+            }
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -425,6 +474,48 @@ namespace pbImgUtils
                     //
                 }
             }
+        }
+
+        private Bitmap[] GenerateSplittedBitmaps()
+        {
+            Bitmap bm = new Bitmap(pbImgStart.Image);
+            int iWidth = bm.Width;
+            int iHeight = bm.Height;
+            int iLines = (int)(nudLines.Value);
+            int iColumns = (int)(nudColumns.Value);
+
+            int iBorderW = (int)(nudBorderWest.Value); // 24;
+            int iBorderE = (int)(nudBorderEast.Value); // 14;
+            int iBorderN = (int)(nudBorderNorth.Value); // 14;
+            int iBorderS = (int)(nudBorderSouth.Value); // 14;
+
+            int iWidthSplitted = (iWidth - (iBorderW + iBorderE)) / iColumns;
+            int iHeightSplitted = (iHeight - (iBorderN + iBorderS)) / iLines;
+            int lenResult = iLines * iColumns;
+            Bitmap[] bms = new Bitmap[lenResult];
+            int indexL = 0;
+            int indexC = 0;
+
+            int index = 0;
+
+            for (indexL = 0; indexL < iLines; indexL++)
+            {
+                for (indexC = 0; indexC < iColumns; indexC++)
+                {
+                    Rectangle srcRect = new Rectangle(iBorderW + indexC * iWidthSplitted, iBorderN + indexL * iHeightSplitted, iWidthSplitted, iHeightSplitted);
+                    Rectangle dstRect = new Rectangle(0, 0, iWidthSplitted, iHeightSplitted);
+
+                    /*bms[indexL * indexC + indexC] = new Bitmap(iWidthSplitted, iHeightSplitted);
+                    bms[indexL * indexC + indexC] = pbImgStart.Image.Clone(srcRect, pbImgStart.Image.PixelFormat);*/
+                    bms[index] = new Bitmap(iWidthSplitted, iHeightSplitted);
+                    Graphics gp;
+                    gp = Graphics.FromImage(bms[index]);
+                    gp.Clear(Color.Red);
+                    gp.DrawImage(bm, dstRect, srcRect, GraphicsUnit.Pixel);
+                    index++;
+                }
+            }
+            return bms;
         }
 
         private Bitmap[] GenerateBitmaps()
@@ -547,6 +638,8 @@ namespace pbImgUtils
                             pbImgStart.Image = (Image)(new Bitmap(bmPicture));
                             btSave.Enabled = true;
                             btPreview.Enabled = true;
+                            btSplitSave.Enabled = true;
+                            btSplitPreview.Enabled = true;
                         }
                     }
                     else
@@ -593,6 +686,8 @@ namespace pbImgUtils
                         pbImgStart.Image = (Image)(new Bitmap(bmPicture));
                         btSave.Enabled = true;
                         btPreview.Enabled = true;
+                        btSplitSave.Enabled = true;
+                        btSplitPreview.Enabled = true;
                     }
                 }
                 catch (Exception ex)
@@ -619,12 +714,71 @@ namespace pbImgUtils
             Properties.Settings.Default.bYcentered = cbYCenter.Checked;
             Properties.Settings.Default.bOneFilePerLine = cbOneFilePerLine.Checked;
             Properties.Settings.Default.bKeepAspectRatio = cbKeepOriginalRatio.Checked;
+
+            Properties.Settings.Default.iSplitLines = (int)(nudLines.Value);
+            Properties.Settings.Default.iSplitColumns = (int)(nudColumns.Value);
+            Properties.Settings.Default.iBorderEast = (int)(nudBorderEast.Value);
+            Properties.Settings.Default.iBorderNorth = (int)(nudBorderNorth.Value);
+            Properties.Settings.Default.iBorderWest = (int)(nudBorderWest.Value);
+            Properties.Settings.Default.iBorderSouth = (int)(nudBorderSouth.Value);
+
             Properties.Settings.Default.Save();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveMySettings();
+        }
+
+        private void btSplitSave_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == sfdImg.ShowDialog())
+            {
+                String sFileName = sfdImg.FileName;
+                try
+                {
+                    List<String> lsFiles = new List<String>();
+                    Bitmap[] bms = GenerateSplittedBitmaps();
+                    for (int i = 0; i < bms.Length; i++)
+                    {
+                        String sFileName0 = sFileName;
+                        if (i > 0)
+                        {
+                            int ipos = sFileName0.LastIndexOf(".");
+                            if (ipos > -1)
+                            {
+                                String sExt = sFileName0.Substring(ipos);
+                                sFileName0 = sFileName0.Substring(0, ipos) + "_" + i.ToString() + sExt;
+                            }
+                        }
+                        bms[i].Save(sFileName0, ImageFormat.Png);
+                        lsFiles.Add(sFileName0);
+                    }
+                    int imax = lsFiles.Count;
+                    for (int i = 0; i < imax; i++)
+                    {
+                        int ibegin = i;
+                        String s = String.Empty;
+                        for (i = ibegin; (i < imax) && (i < ibegin + 40); i++)
+                        {
+                            s += " " + lsFiles[i];
+                        }
+                        MyProcessHelper pPngQuant = new MyProcessHelper(Application.StartupPath + "\\pngquant\\pngquant.exe", s + " --force --ext .png --verbose");
+                        pPngQuant.DoIt();
+                    }
+                    SaveMySettings();
+                }
+                catch (Exception ex)
+                {
+                    //
+                }
+            }
+        }
+
+        private void btSplitPreview_Click(object sender, EventArgs e)
+        {
+            Bitmap[] bms = GenerateSplittedBitmaps();
+            pbImgResult.Image = bms[0];
         }
     }
 }
