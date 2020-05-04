@@ -1,6 +1,8 @@
 # pbImgUtils
 
-A little software to resize a picture and add a text on it.
+A little software to:
+ * resize a picture and add a text on it.
+ * split a picture into several ones.
 
 Last version: 1.2
 
